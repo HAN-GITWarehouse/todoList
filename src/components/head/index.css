@@ -1,0 +1,15 @@
+.header-Con {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #cece;
+  border-radius: 5px;
+}
+.header-Con input[type="text"] {
+  width: 95%;
+  height: 28px;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  outline: none;
+  text-indent: 10px;
+}

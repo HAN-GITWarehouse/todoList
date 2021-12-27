@@ -1,0 +1,13 @@
+.list-Cord {
+  list-style: none;
+  width: 98%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #cecece;
+  display: flex;
+  padding: 0 5px;
+  align-items: center;
+}
+.list-Cord label span {
+  padding-left: 5px;
+}
