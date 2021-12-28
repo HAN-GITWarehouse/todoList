@@ -1,21 +1,38 @@
 import React, { Component } from 'react'
 import "./index.css"
 import { nanoid } from "nanoid"
- 
+import propTypes from "prop-types"
+
+
 export default class Header extends Component {
+    
+    //对接收的props进行类型，必要性限制
+    static propTypes={
+         addTodo:propTypes.func.isRequired
+    }
+
     handleKeyUp=(event)=>{
-      
+
         const {keyCode,target}=event
+
         if(keyCode !== 13){
             return
         }
+
+        if(target.value.trim()===''){
+            console.log('输入的内容不能为空')
+            return
+        }
+
         const todoObj={
             id:nanoid(),
             name:target.value,
             done:false
-        }
+        } 
+
+        this.props.addTodo(todoObj)
         
-        this.props.AddTodo(todoObj)
+        target.value=""
     }
     render() {
         return (

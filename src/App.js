@@ -25,18 +25,63 @@ class App extends Component{
     }
 
     // AddTodo用于添加一个todo 接受的参数是todo对象
-    AddTodo=(todoObj)=>{
+    addTodo=(todoObj)=>{
+
         const {todos}=this.state
-        const newTodos=[...todoObj,todos]
+        const newTodos=[todoObj,...todos]
         this.setState({todos:newTodos})
-    } 
+
+    }
+    
+    
+    updataTodo=(id,done)=>{
+
+       const {todos}=this.state
+       
+       const newTodos=todos.map(todo=>{   
+           if(todo.id===id) return {...todo,done} 
+           else return todo
+        })
+
+        this.setState({todos:newTodos})
+
+    }
+
+
+    Deletetodo=(id)=>{
+
+       const {todos}=this.state
+
+       const newTodos= todos.filter(todos=>{
+            return todos.id!==id
+       })
+
+       this.setState({todos:newTodos})
+
+    }
+
+
+    chaeckAll=(done)=>{
+       console.log(done);
+        
+       const {todos}=this.state
+
+       const newTodos=todos.map(todo=>{
+           return {...todo,done}   
+       })
+
+       this.setState({todos:newTodos})
+
+    }
+
+        
     render() {
         const {todos}=this.state
         return(
            <div className="todo-Con">
-              <Header AddTodo={this.AddTodo}/>
-              <List  todos={todos} />
-              <Footer/>
+              <Header addTodo={this.addTodo}/>
+              <List  todos={todos} updataTodo={this.updataTodo} Deletetodo={this.Deletetodo}/>
+              <Footer todos={todos} chaeckAll={this.chaeckAll}/>
            </div> 
         )
     }

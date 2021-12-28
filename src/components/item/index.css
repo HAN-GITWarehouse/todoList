@@ -7,7 +7,12 @@
   display: flex;
   padding: 0 5px;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 .list-Cord label span {
   padding-left: 5px;
+}
+.list-Cord button {
+  cursor: pointer;
 }
