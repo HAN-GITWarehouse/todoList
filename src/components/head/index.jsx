@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
 import "./index.css"
-
+import { nanoid } from "nanoid"
+ 
 export default class Header extends Component {
     handleKeyUp=(event)=>{
-       console.log(event.target.value,event.keyCode);
+      
+        const {keyCode,target}=event
+        if(keyCode !== 13){
+            return
+        }
+        const todoObj={
+            id:nanoid(),
+            name:target.value,
+            done:false
+        }
+        
+        this.props.AddTodo(todoObj)
     }
     render() {
         return (

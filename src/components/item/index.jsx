@@ -3,7 +3,7 @@ import "./index.css"
 
 export default class Item extends Component {
     render() {
-        const { name,id,done}=this.props
+        const { name,done}=this.props
         return (
            <li className='list-Cord'>
               <label>

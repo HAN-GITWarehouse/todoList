@@ -23,11 +23,18 @@ class App extends Component{
           }
        ]
     }
+
+    // AddTodo用于添加一个todo 接受的参数是todo对象
+    AddTodo=(todoObj)=>{
+        const {todos}=this.state
+        const newTodos=[...todoObj,todos]
+        this.setState({todos:newTodos})
+    } 
     render() {
         const {todos}=this.state
         return(
            <div className="todo-Con">
-              <Header/>
+              <Header AddTodo={this.AddTodo}/>
               <List  todos={todos} />
               <Footer/>
            </div> 
